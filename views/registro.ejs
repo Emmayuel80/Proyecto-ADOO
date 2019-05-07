@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Libreria</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <style type="text/css">
+        .demo-card-wide.mdl-card {
+            display: table;
+            width: 640px;
+        }
+        
+        .mdl-button {
+            width: 100%;
+        }
+        
+        .demo-card-wide {
+            height: 200px;
+        }
+        
+        .demo-card-wide>.mdl-card__title {
+            color: #fff;
+            height: 64px;
+            background: #ffc107;
+        }
+        
+        .mdl-card__title-text {
+            position: relative;
+            top: 6px;
+        }
+        
+        .demo-card-wide>.mdl-card__menu {
+            color: #fff;
+        }
+        
+        #mycard {
+            height: 600px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .mdl-textfield {
+            width: 250px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header" style="background:#ff5622">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">Title</span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation. We hide it in small screens. -->
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Title</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+
+
+
+                <div id="mycard">
+                    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                        <div class="mdl-card__title">
+                            <h2 class="mdl-card__title-text">Registrarse</h2>
+                        </div>
+
+
+                        <div class="mdl-card__supporting-text">
+                            <form action="" class="needs-validation">
+
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" id="name" pattern="[A-Z,a-z]*">
+                                    <label class="mdl-textfield__label" for="sample3">Nombre(s)</label>
+                                    <div class="mdl-textfield__error">PorFavor ingrese su nombre</div>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" id="lastname" pattern="[A-Z,a-z]*">
+                                    <label class="mdl-textfield__label" for="sample3">Apellido(s)</label>
+                                    <span class="mdl-textfield__error">PorFavor ingrese su apellido</span>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" id="user">
+                                    <label class="mdl-textfield__label" for="sample2">Usuario</label>
+                                    <span class="mdl-textfield__error">PorFavor ingrese su usuario</span>
+                                </div>
+
+                                <div id="email">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                        <input class="mdl-textfield__input" type="email" id="email">
+                                        <label class="mdl-textfield__label" for="sample2">Correo Electrónico</label>
+                                        <span class="mdl-textfield__error">PorFavor ingrese su Correo Electrónico</span>
+                                    </div>
+
+
+                                    <div id="passwords">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input class="mdl-textfield__input" type="password" id="password">
+                                            <label class="mdl-textfield__label" for="sample3">Contraseña</label>
+                                            <span class="mdl-textfield__error">PorFavor ingrese su Contraseña</span>
+                                        </div>
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input class="mdl-textfield__input" type="password" id="cpassword">
+                                            <label class="mdl-textfield__label" for="sample3">Repetir Contraseña</label>
+                                            <span class="mdl-textfield__error">PorFavor ingrese su Contraseña</span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">registrarse</button>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+        </main>
+        </div>
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <script>
+            var form = document.querySelector('.needs-validation');
+            form.addEventListener('submit', function(event) {
+                var form = document.querySelector('.needs-validation');
+                var ver = document.getElementsByClassName("mdl-textfield");
+                var inp = document.getElementsByClassName("mdl-textfield__input");
+                var er = 0;
+                for (i = 0; i < inp.length; i++) {
+                    if (inp[i].value == "") {
+                        ver[i].classList.add("is-invalid");
+                        er++;
+                    }
+                }
+                if (er > 0) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    alert("ok");
+                }
+            })
+        </script>
+</body>
+
+</html>
