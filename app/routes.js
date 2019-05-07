@@ -48,22 +48,7 @@ module.exports = function(app, passport) {
             user: req.user // get the user out of session and pass to template
         });
     });
-    // =====================================
-    // CHAT SECTION    =====================
-    // =====================================
-    app.get('/chat', isLoggedIn, function(req, res) {
-        res.render('chat.ejs', {
-            user: req.user
-        });
-    });
-    // =====================================
-    // ROOM SECTION    =====================
-    // =====================================
-    app.get('/room', isLoggedIn, function(req, res) {
-        res.render('room.ejs', {
-            user: req.user
-        });
-    });
+
     // =====================================
     // LOGOUT ==============================
     // =====================================
