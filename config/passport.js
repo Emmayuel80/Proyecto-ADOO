@@ -43,12 +43,14 @@ module.exports = function(passport) {
 
     passport.use('local-signup', new LocalStrategy({
             // by default, local strategy uses username and password, we will override with email
-            usernameField: 'email',
+            usernameField: 'username',
             passwordField: 'password',
             passReqToCallback: true // allows us to pass back the entire request to the callback
         },
-        function(req, email, password, done) {
-
+        function(req, username, password, done) {
+            connection.query("select idCliente from cliente order by idCliente DESC", function(err, rows) {
+                //TO DO: Incrementar el ultimo ID
+            });
             // find a user whose email is the same as the forms email
             // we are checking to see if the user trying to login already exists
             connection.query("select * from cliente where email = '" + email + "'", function(err, rows) {
@@ -63,11 +65,14 @@ module.exports = function(passport) {
                     // if there is no user with that email
                     // create the user
                     var newUserMysql = new Object();
-
-                    newUserMysql.email = email;
+                    newUserMysql.username = username;
+                    newUserMysql.email = req.body.email;
                     newUserMysql.password = password; // use the generateHash function in our user model
+                    newUserMysql.name = req.body.name;
+                    newUserMysql.apellido = req.body.apPaterno + " " + req.body.apMaterno;
 
-                    var insertQuery = "INSERT INTO cliente ( email, contraseña ) values ('" + email + "','" + password + "')";
+                    var insertQuery = "INSERT INTO cliente ( , contraseña ) " +
+                        "values ('" + email + "','" + password + "')";
                     console.log(insertQuery);
                     connection.query(insertQuery, function(err, rows) {
                         newUserMysql.id = rows.insertId;
