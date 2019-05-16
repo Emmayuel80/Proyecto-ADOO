@@ -30,7 +30,7 @@ module.exports = function(passport) {
     // used to deserialize the user
     passport.deserializeUser(function(id, done) {
         connection.query("select * from cliente where idCliente = " + id, function(err, rows) {
-            done(err, rows[0]);
+            return done(null, rows[0]);
         });
     });
 
@@ -43,13 +43,15 @@ module.exports = function(passport) {
 
     passport.use('local-signup', new LocalStrategy({
             // by default, local strategy uses username and password, we will override with email
-            usernameField: 'username',
+            usernameField: 'email',
             passwordField: 'password',
             passReqToCallback: true // allows us to pass back the entire request to the callback
         },
-        function(req, username, password, done) {
+        function(req, email, password, done) {
+            var lastId;
+            //Obtaining the last id
             connection.query("select idCliente from cliente order by idCliente DESC", function(err, rows) {
-                //TO DO: Incrementar el ultimo ID
+                lastId = Number(rows[0].idCliente);
             });
             // find a user whose email is the same as the forms email
             // we are checking to see if the user trying to login already exists
@@ -59,23 +61,31 @@ module.exports = function(passport) {
                 if (err)
                     return done(err);
                 if (rows.length) {
-                    return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+                    return done(null, false, req.flash('signupMessage', 'Esa dirección de correo electronico ya existe.'));
                 } else {
 
                     // if there is no user with that email
                     // create the user
-                    var newUserMysql = new Object();
-                    newUserMysql.username = username;
-                    newUserMysql.email = req.body.email;
-                    newUserMysql.password = password; // use the generateHash function in our user model
-                    newUserMysql.name = req.body.name;
-                    newUserMysql.apellido = req.body.apPaterno + " " + req.body.apMaterno;
+                    var newUserMysql = {
+                        idCliente: parseInt((lastId + 1)),
+                        Genero: req.body.generos,
+                        Nombre: req.body.name,
+                        ap: req.body.apPaterno,
+                        am: req.body.apMaterno,
+                        dir: req.body.Estado,
+                        calle: req.body.calle,
+                        colonia: req.body.colonia,
+                        CP: parseInt(req.body.cp),
+                        num: parseInt(req.body.num),
+                        Tel: req.body.tel,
+                        email: req.body.email,
+                        contraseña: password, // use the generateHash function in our user model
+                    }
 
-                    var insertQuery = "INSERT INTO cliente ( , contraseña ) " +
-                        "values ('" + email + "','" + password + "')";
+                    var insertQuery = "INSERT INTO Cliente SET ?";
                     console.log(insertQuery);
-                    connection.query(insertQuery, function(err, rows) {
-                        newUserMysql.id = rows.insertId;
+                    connection.query(insertQuery, newUserMysql, function(err, rows) {
+                        newUserMysql.idCliente = rows.insertId;
 
                         return done(null, newUserMysql);
                     });
@@ -101,12 +111,12 @@ module.exports = function(passport) {
                 if (err)
                     return done(err);
                 if (!rows.length) {
-                    return done(null, false, req.flash('loginMessage', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
+                    return done(null, false, req.flash('loginMessage', 'Esa direccion de correo electronico no esta registrada.')); // req.flash is the way to set flashdata using connect-flash
                 }
 
                 // if the user is found but the password is wrong
                 if (!(rows[0].contraseña == password))
-                    return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
+                    return done(null, false, req.flash('loginMessage', 'Oops! Contraseña incorrecta.')); // create the loginMessage and save it to session as flashdata
 
                 // all is well, return successful user
                 return done(null, rows[0]);
