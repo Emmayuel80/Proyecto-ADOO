@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+  <link rel="apple-touch-icon" sizes="57x57" href="../assets/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../assets/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../assets/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../assets/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../assets/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../assets/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../assets/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../assets/favicon/manifest.json">
+  <meta name="msapplication-TileImage" content="../assets/favicon/ms-icon-144x144.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <title>Libreria</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.light_blue-light_green.min.css" />
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+
+  <style>
+    body {
+      height: 100vh;
+    }
+
+    .contenido {
+      margin-top: 30px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .demo-card-wide.mdl-card {}
+
+    .mdl-card__title {
+      background: rgb(3, 169, 244)
+    }
+
+    .mdl-button {
+      margin: 5px;
+    }
+
+    .logos {
+      background: url("../assets/logo.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="logos"></div>
+  <div class="contenido">
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Iniciar sesión</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <form action="/registro" method="POST" class="needs-validation">
+          <div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="username" pattern="^[A-Za-z0-9_]{1,15}$">
+              <label class="mdl-textfield__label" for="sample3">Usuario</label>
+              <span class="mdl-textfield__error">Por Favor ingrese su usuario</span>
+            </div>
+          </div>
+          <div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="password" id="password">
+              <label class="mdl-textfield__label" for="sample3">Contraseña</label>
+              <span class="mdl-textfield__error">Po Favor ingrese su Contraseña</span>
+            </div>
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+              type="submit">registrarse</button>
+            <a href="registro" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Crear cuenta</a>
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Recuperar Contraseña</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <script>
+    var form = document.querySelector('.needs-validation');
+    form.addEventListener('submit', function (event) {
+      var form = document.querySelector('.needs-validation');
+      var ver = document.getElementsByClassName("mdl-textfield");
+      var inp = document.getElementsByClassName("mdl-textfield__input");
+      var er = 0;
+      for (i = 0; i < inp.length; i++) {
+        if (inp[i].value == "") {
+          ver[i].classList.add("is-invalid");
+          er++;
+        }
+      }
+      if (er > 0) {
+        event.preventDefault();
+        event.stopPropagation();
+      } else {
+        alert("Inicio Exitoso!");
+      }
+    })
+  </script>
+</body>
+
+</html>
