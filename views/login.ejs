@@ -31,7 +31,7 @@
         body {
             height: 100vh;
         }
-        
+
         .contenido {
             margin-top: 30px;
             width: 100%;
@@ -39,17 +39,19 @@
             align-items: center;
             justify-content: center;
         }
-        
-        .demo-card-wide.mdl-card {}
-        
+
+        .demo-card-wide.mdl-card {
+          width: 500px;
+        }
+
         .mdl-card__title {
             background: rgb(3, 169, 244)
         }
-        
+
         .mdl-button {
             margin: 5px;
         }
-        
+
         .logos {
             background: url("../assets/logo.png");
             background-position: center;
@@ -57,7 +59,11 @@
             width: 100%;
             height: 100px;
         }
-    </style>
+        .mdl-textfield
+        {
+          width: 450px;
+        }
+        </style>
 </head>
 
 <body>
@@ -90,7 +96,7 @@
                                 </div>
                             </div>
                             <div class="mdl-card__actions mdl-card--border">
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit">registrarse</button>
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"type="submit">Iniciar sesión</button>
                                 <a href="registro.ejs" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Crear cuenta</a>
                                 <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Recuperar Contraseña</a>
                             </div>
