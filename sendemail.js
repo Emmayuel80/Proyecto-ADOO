@@ -13,7 +13,7 @@ var mailOptions = {
   to: 'sza0210escom@gmail.com, emmayuel80@gmail.com',
   subject: 'Sending Email using Node.js',
   text: `The game`
-  // html: '<h1>Hi Smartherd</h1><p>Your Messsage</p>'
+
 };
 
 transporter.sendMail(mailOptions, function(error, info){
