@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.light_blue-light_green.min.css" />
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   <style type="text/css">
 
     body {
@@ -54,26 +55,73 @@
       justify-content: center;
     }
     .nav{
-      background: palegreen;
+      display: flex;
+
       width: 100%;
-      height: 100px;
+      height: 50px;
+      align-items: baseline;
+      justify-content: flex-end;
     }
     .inputForm{
       border-radius:5px;
       -moz-border-radius:5px;
       -webkit-border-radius:5px;
    }
-   .buscador
+   .logo
+    {
+      background: url("../../assets/logo.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100px;
+    }
+    .buscador{
+      width: 100%;
+      height: 200px;
+      background: orange;
+    }
+   .icono
    {
-     background: black;
+     color:rgb(3, 169, 244);
+     font-size: 30px;
+     margin: 5px;
+   }
+   .mdl-button
+   {
+     margin: 5px;
+   }
+   .bus{
+      border-radius:5px;
+      -moz-border-radius:5px;
+      -webkit-border-radius:5px;
    }
   </style>
 </head>
 
 <body>
-  <div class="nav"></div>
+  <div class="nav">
+    <div><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"><i class="icono fas fa-cart-plus"></i>Carrito(#)</a>
+    </div>
+    <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Iniciar sesión</a>
+    <a href="registro.ejs" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Registrarse</a>
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Cerrar sesion</a>
+  </div>
   <div class="contenido">
     <div class="cont">
+      <div class="logo"></div>
+      <div class="buscador">
+          <form action="#">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+                  <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                  <input class="mdl-textfield__input" type="text" id="sample6">
+                  <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+                </div>
+              </div>
+            </form>
+      </div>
     </div>
   </div>
 </body>
