@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	
+  <meta charset="UTF-8">
+  <title>Recuperar Contrasena</title>
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.light_blue-light_green.min.css" />
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <style type="text/css">
+    body {
+      font-family: 'Roboto';
+    }
+
+    .demo-card-wide.mdl-card {
+      display: table;
+      margin: auto;
+      width: 500px;
+    }
+
+    .mdl-button {
+      margin-left: 100px;
+    }
+
+    .demo-card-wide {
+      height: 0px;
+    }
+
+
+    .demo-card-wide>.mdl-card__title {
+      height: 64px;
+      background: #b2ff59;
+    }
+
+    .mdl-card__title-text {
+      position: relative;
+      top: 6px;
+
+    }
+
+    .demo-card-wide>.mdl-card__menu {
+      color: #fff;
+    }
+
+
+    #mycard {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0px;
+    }
+
+    .mdl-textfield {
+      width: 350px;
+      margin-right: 10px;
+      font-family: 'Roboto';
+    }
+
+    .mdl-card__supporting-text {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mdl3-tf {
+      width: 150px;
+      margin-right: 10px;
+    }
+
+    .logos {
+      background:url("../assets/logo.png") ;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100px;
+    }
+
+    .Indicaciones {
+      margin: auto;
+      width: 550px;
+      text-align: left;
+      margin-left: 25px;
+      margin bottom: 20px;
+      font-family: 'Roboto';
+    }
+
+    .botones {
+      margin-right: : 25px;
+      width: 100%;
+      margin: 30px 0;
+    }
+
+  </style>
+</head>
+
+<body>
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Recuperar Contraseña</h2>
+        </div>
+        <div>
+            <br>
+            <h6 class="Indicaciones">Para recuperar su contraseña, ingrese su dirección de correo electrónico, le enviaremos un email con las indicaciones para poder ingresar de nuevo</h6><br>
+        </div>
+
+        <div class="mdl-card__supporting-text">
+        	<form action="" class="Datos">
+                <label for="" class="Datos_etiqueta">Correo Electrónico: </label> 
+                <input type="email" id="mail" name="mail">
+             	<span class="error" aria-live="polite"></span>
+                <div class="botones">
+                    <input type="submit" value ="Enviar Correo" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    <input type="button" onclick=" location.href='Registro.html' " value ="Cancelar" class="mdl-button mdl-js-button mdl-button--raised"><br>
+                </div> 
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

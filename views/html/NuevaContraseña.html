@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  
+  <meta charset="UTF-8">
+  <title>Cambiar Contrasena</title>
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.light_blue-light_green.min.css" />
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <style type="text/css">
+    body {
+      font-family: 'Roboto';
+    }
+
+    .demo-card-wide.mdl-card {
+      display: table;
+      margin: auto;
+      width: 500px;
+    }
+
+    .mdl-button {
+      margin-left: 100px;
+    }
+
+    .demo-card-wide {
+      height: 0px;
+    }
+
+
+    .demo-card-wide>.mdl-card__title {
+      height: 64px;
+      background: #b2ff59;
+    }
+
+    .mdl-card__title-text {
+      position: relative;
+      top: 6px;
+
+    }
+
+    .demo-card-wide>.mdl-card__menu {
+      color: #fff;
+    }
+
+
+    #mycard {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0px;
+    }
+
+    .mdl-textfield {
+      width: 350px;
+      margin-right: 10px;
+      font-family: 'Roboto';
+    }
+
+    .mdl-card__supporting-text {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mdl3-tf {
+      width: 150px;
+      margin-right: 10px;
+    }
+
+    .logos {
+      background:url("../assets/logo.png") ;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100px;
+    }
+
+    .Indicaciones {
+      margin: auto;
+      width: 550px;
+      text-align: center;
+      margin bottom: 20px;
+      font-family: 'Roboto';
+    }
+
+  </style>
+</head>
+	
+
+<body>
+
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Cambiar contraseña</h2>
+        </div>
+        <div>
+            <br>
+            <h4 class="Indicaciones">Ingresa la nueva contraseña dos veces</h4><br>
+        </div>
+
+        <div class="mdl-card__supporting-text">
+	       <form action="" name="Contrasenas" class="Contrasenas">
+            <label for="" class="Contrasena_entrada">Contraseña: </label> 
+            <input type="password" name="Contrasenanueva" placeholder="Ingresa Contraseña" class="Contrasena_entrada">
+            <br><br>
+            <label for="" class="Contrasena_entrada">Repita Contraseña: </label>
+            <input type="password" name="Contrasenaverificar" placeholder="Repita Contraseña" class="Contrasena_entrada">
+            <br><br>
+            <input type="submit" id="guardar" value ="Guardar cambios" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            <br> 
+        </form>
+        </div>
+    </div>
+
+    <script>
+    	(function(){
+
+    		var Contrasenas = document.getElementsByName('Contrasenas')[0],
+    			elementos = Contrasenas.elements,
+    			boton = document.getElementById('guardar');
+
+    		var validarContrasena = function(e){
+    			if(Contrasenas.Contrasenanueva.value == 0){
+    				alert("Ingresa una contraseña");
+    				e.preventDefault();
+    			}
+    			
+    			else if(Contrasenas.Contrasenanueva.value == Contrasenas.Contrasenaverificar.value){
+                    alert("Se ha cambiado la contraseña");
+                    window.location="Principal.html";
+                    e.preventDefault();
+    			}
+    			else{
+    				alert("Las contraseñas no coinciden");	
+    				e.preventDefault();
+    			}
+    		};
+
+    		Contrasenas.addEventListener("submit",validarContrasena);
+
+    	}())
+    </script>
+
+</body>
+</html>
