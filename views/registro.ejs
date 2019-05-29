@@ -46,7 +46,7 @@
 
     .demo-card-wide>.mdl-card__title {
       height: 64px;
-      background: #b2ff59;
+      background: #03a9f4;
     }
 
     .mdl-card__title-text {
@@ -111,7 +111,7 @@
         <form action="/registro" method="POST" class="needs-validation">
           <div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" id="name" name="name" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+">
+              <input class="mdl-textfield__input" type="text" id="name" name="name" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" maxlength="45">
               <label class="mdl-textfield__label" for="sample3">Nombre(s)</label>
               <div class="mdl-textfield__error">Por favor ingrese su nombre</div>
             </div>
@@ -119,20 +119,20 @@
           <div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
               <input class="mdl-textfield__input" type="text" id="apPaterno" name="apPaterno"
-                pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+">
+                pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" maxlength="45">
               <label class="mdl-textfield__label" for="sample3">Apellido Paterno</label>
               <span class="mdl-textfield__error">Por Favor ingrese su apellido paterno</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
               <input class="mdl-textfield__input" type="text" id="apMaterno" name="apMaterno"
-                pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+">
+                pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" maxlength="45">
               <label class="mdl-textfield__label" for="sample3">Apellido Materno</label>
               <span class="mdl-textfield__error">Por Favor ingrese su apellido materno</span>
             </div>
           </div>
           <div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="email" id="email" name="email">
+              <input class="mdl-textfield__input" type="email" id="email" name="email" maxlength="45">
               <label class="mdl-textfield__label" for="sample3">Correo Electrónico</label>
               <span class="mdl-textfield__error">Por Favor ingrese su correo electrónico</span>
             </div>
@@ -140,12 +140,12 @@
           </div>
           <div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="password" id="password" name="password">
+              <input class="mdl-textfield__input" type="password" id="password" name="password" maxlength="45">
               <label class="mdl-textfield__label" for="sample3">Contraseña</label>
               <span class="mdl-textfield__error">Po Favor ingrese su Contraseña</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="password" id="cpassword" name="cpassword">
+              <input class="mdl-textfield__input" type="password" id="cpassword" name="cpassword" maxlength="45">
               <label class="mdl-textfield__label" for="sample3">Repetir Contraseña</label>
               <span class="mdl-textfield__error">Por Favor ingrese su Contraseña</span>
             </div>
@@ -161,12 +161,12 @@
           </div>
           <div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" id="calle" name="calle">
+              <input class="mdl-textfield__input" type="text" id="calle" name="calle" maxlength="45">
               <label class="mdl-textfield__label" for="sample3">Calle</label>
               <span class="mdl-textfield__error">Por Favor ingrese su calle</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" id="colonia" name="colonia">
+              <input class="mdl-textfield__input" type="text" id="colonia" name="colonia" maxlength="45">
               <label class="mdl-textfield__label" for="sample3">Colonia</label>
               <span class="mdl-textfield__error">Por Favor ingrese su colonia</span>
             </div>
