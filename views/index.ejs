@@ -116,11 +116,12 @@
 <body>
   <div class="nav">
 
-      <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"><i class="icono fas fa-cart-plus"></i>Carrito(#)</button>
-      <span class="cliente">Nombre Apellido</span>
-      <a href="/login"><button  class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="login">Inciar sesión</button></a>
-      <a href="/registro"><button href="/registro" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="registro">Registrarse</button></a>
-      <a><button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="logout">Cerrar sesion</button></a>
+      <a <%= user %> href="/cart" ><button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"><i class="icono fas fa-cart-plus"></i>Carrito(<%= dato3 %>)</button> </a>
+      <span class="cliente" <%= user %>  ><%= dato1 %> <%= dato2 %></span>
+      <a <%= user %> href="/logout"><button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="logout">Cerrar sesion</button></a>
+      <a <%= as %> href="/login"><button  class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="login">Inciar sesión</button></a>
+      <a <%= as %> href="/registro"><button href="/registro" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="registro">Registrarse</button></a>
+
 
 
   </div>
@@ -129,17 +130,17 @@
       <div class="imagen">
           <a href="/"><img class="logo" src="logo350x350.png"></a>
       </div>
-      <form action="">
+      <form action="/resultados" method="POST">
         <div class="buscador">
           <div class="search">
-            <input id="busqueda" class="entrada" type="text" autocapitalize="off" spellcheck="false" autocorrect="off">
+            <input id="busqueda" class="entrada" name="cosa" type="text" autocapitalize="off" spellcheck="false" autocorrect="off">
           </div>
         </div>
         <div class="botones">
           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit">Buscar</button>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label combo" style="margin-left: 10px">
             <select class="mdl-textfield__input combo" id="filtro" name="filtro">
-              <option value="Titilo de Libro">Títilo de Libro</option>
+              <option value="titulo">Título de Libro</option>
               <option value="Autor">Autor</option>
               <option value="Editorial">Editorial</option>
             </select>
