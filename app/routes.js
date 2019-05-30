@@ -70,6 +70,9 @@ module.exports = function(app, passport) {
        });
   });
 
+  app.get('/resultados', function(req, res) {
+    res.render('resultados'); // load the index.ejs file
+});
     // =====================================
     // PROFILE SECTION =====================
     // =====================================
