@@ -1,6 +1,20 @@
 // app/routes.js
 module.exports = function(app, passport) {
 
+  var mysql=require('mysql');
+  var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'root'
+});
+ connection.connect(function(error){
+    if(!!error){
+      console.log(error);
+    }else{
+      console.log('Connected!:)');
+    }
+  });
+  connection.query('USE libreria');
     // =====================================
     // HOME PAGE (with login links) ========
     // =====================================
@@ -37,6 +51,24 @@ module.exports = function(app, passport) {
         res.render('registro.ejs', { message: req.flash('signupMessage') });
     });
 
+     // =====================================
+    // carrito ========
+    // =====================================
+    app.get('/cart', isLoggedIn,function(req, res) {
+      var f = req.user;
+
+      const id=f.idCliente;
+      console.log(id);
+      connection.query('SELECT * FROM carrito WHERE cliente = ?',id,(err, datos) => {
+        if (err) {
+         res.json(err);
+        }
+        console.log(datos);
+        res.render('cart', {
+           data: datos
+        });
+       });
+  });
 
     // =====================================
     // PROFILE SECTION =====================
@@ -77,7 +109,7 @@ module.exports = function(app, passport) {
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
 
-    // if user is authenticated in the session, carry on 
+    // if user is authenticated in the session, carry on
     if (req.isAuthenticated())
         return next();
 

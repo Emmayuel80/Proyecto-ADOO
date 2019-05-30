@@ -14,7 +14,7 @@ var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-
+const path = require('path');
 
 
 require('./config/passport')(passport); // pass passport for configuration
@@ -24,7 +24,10 @@ app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser()); // get information from html forms
 
+
 app.set('view engine', 'ejs'); // set up ejs for templating
+app.use(express.static(path.join(__dirname, '/assets')));
+console.log(path.join(__dirname, '/assets'));
 
 // required for passport
 app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
