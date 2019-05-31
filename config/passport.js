@@ -30,7 +30,7 @@ module.exports = function(passport) {
     // used to deserialize the user
     passport.deserializeUser(function(id, done) {
         connection.query("select * from cliente where idCliente = " + id, function(err, rows) {
-            return done(null, rows[0]);
+            return done(err, rows[0]);
         });
     });
 
@@ -85,7 +85,7 @@ module.exports = function(passport) {
                     var insertQuery = "INSERT INTO Cliente SET ?";
                     console.log(insertQuery);
                     connection.query(insertQuery, newUserMysql, function(err, rows) {
-                        newUserMysql.idCliente = rows.insertId;
+                        //newUserMysql.idCliente = rows.insertId;
 
                         return done(null, newUserMysql);
                     });
