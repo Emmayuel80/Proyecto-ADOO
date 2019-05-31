@@ -8,15 +8,25 @@ var transporter = nodemailer.createTransport({
   }
 });
 
-var mailOptions = {
+function destino(des)
+{
+  var mail={
   from: 'enigmalibro@gmail.com',
-  to: 'sza0210escom@gmail.com, emmayuel80@gmail.com',
+  to: des,
   subject: 'Sending Email using Node.js',
-  text: `The game`
+  text: `Tadadadada2`
+  };
+  return mail;
+}
+/*var mailOptions = {
+  from: 'enigmalibro@gmail.com',
+  to: 'sza0210escom@gmail.com',
+  subject: 'Sending Email using Node.js',
+  text: `The game2`
 
-};
+};*/
 
-transporter.sendMail(mailOptions, function(error, info){
+transporter.sendMail(destino('sza0210escom@gmail.com'), function(error, info){
   if (error) {
     console.log(error);
   } else {
