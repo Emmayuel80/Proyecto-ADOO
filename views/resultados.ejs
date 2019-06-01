@@ -80,15 +80,8 @@
   }
 
 
-  .cliente {
-    font-size: 17px;
-    letter-spacing: .03em;
-  }
-  .icono {
-    color: rgb(3, 169, 244);
-    font-size: 30px;
-    margin: 5px;
-  }
+
+
   .buscador {
     background: #fff;
     display: flex;
@@ -114,13 +107,7 @@
     margin-right: 15px;
     border: none;
   }
-  .entrada {
-    border: none;
-    background-color: transparent;
-    width: 100%;
-    height: 44px;
-    font: 18px 'Roboto', arial, sans-serif;
-  }
+
   .entrada:focus {
     outline: none;
   }
@@ -133,6 +120,13 @@
 
   }
 
+  .entrada {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    height: 44px;
+    font: 18px 'Roboto', arial, sans-serif;
+  }
   .botones {
     width: 100%;
     height: 70px;
@@ -145,6 +139,7 @@
   {
 
     display: flex;
+    margin-top: 5px;
       width: 100%;
       height: 50px;
       align-items: center;
@@ -154,6 +149,10 @@
       color: rgb(3, 169, 244);
       font-size: 30px;
       margin: 5px;
+    }
+    .combo
+    {
+      width: 125px;
     }
     .cliente {
       font-size: 17px;
@@ -187,29 +186,8 @@
 <body>
 
 
-  <div class="nav">
-    <i class="icono fas fa-bars"></i>
-    <a href="/"><div class="imagen"></div></a>
 
-    <form action="#">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-          <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
-            <i class="material-icons">search</i>
-          </label>
-          <div class="mdl-textfield__expandable-holder">
-            <input class="mdl-textfield__input" type="text" id="sample6">
-            <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
-          </div>
-        </div>
-      </form>
-    <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"><i class="icono fas fa-cart-plus"></i>Carrito(#)</button>
-    <span class="cliente">Nombre Apellido</span>
-    <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="logout">Cerrar sesion</button>
-    <button href="login" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="login">Inciar sesión</button>
-    <button href="registro" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="registro">Registrarse</button>
-
-  </div>
-
+    <%include partials/_nav2%>
 
 
 <div class="contenido">
@@ -297,12 +275,12 @@
        <% if (data) { %>
         <% for(var i = 0; i < data.length; i++) { %>
           <div class="demo-card-square mdl-card mdl-shadow--2dp">
-              <div class="mdl-card__title mdl-card--expand" style="background-image:url('portadas/p_<%=data[i].NumSerie%>.jpg'),url('book.png');">
+              <div class="mdl-card__title mdl-card--expand img_<%=data.lenght%>" id="<%=data[i].NumSerie%>" style="background-image:url('<%=portada[i]%>')">
               </div>
               <div class="mdl-card__supporting-text">
                <h5><%= data[i].titulo %></h5>
                 <br>
-                Autores:autor apellido
+                Autores:<%= data[i].Autor %>
                 <br>
                 Editorial:<%= data[i].Editorial %>
                 <br>
@@ -325,6 +303,29 @@
 
 
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script>
+  window.onload=function(){
+    //alert("im");
+    function checkImage(imageSrc, good, bad) {
+    var img = new Image();
+    img.onload = good;
+    img.onerror = bad;
+    img.src = imageSrc;
+  }
+
+
+    var n=parseInt("<%=data.length%>");
+    for(var i=0;i<n;i++){
+      var im = document.getElementsByClassName("img_"+i)[0].id;
+
+      /*checkImage("portadas/p_".concat(img,".jpg"),
+      function(){ alert("good"); },
+      function(){ alert("bad"); } );*/
+    }
+
+
+  }
+</script>
 </body>
 
 </html>

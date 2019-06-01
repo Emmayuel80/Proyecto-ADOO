@@ -1,0 +1,158 @@
+<% include partials/_header %>
+  <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+  <style>
+    .icono {
+      color: rgb(3, 169, 244);
+      font-size: 30px;
+      margin: 5px;
+    }
+    .input-number-group {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+
+    .input-number-group input[type=number]::-webkit-inner-spin-button,
+    .input-number-group input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .input-number-group .input-group-button {
+      line-height: calc(80px/2 - 5px);
+    }
+
+    .input-number-group .input-number {
+      width: 50px;
+      padding: 0 12px;
+      vertical-align: top;
+      text-align: center;
+      outline: none;
+      display: block;
+      margin: 0;
+    }
+
+    .input-number-group .input-number,
+    .input-number-group .input-number-decrement,
+    .input-number-group .input-number-increment {
+      border: 1px solid #cacaca;
+      height: 40px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      border-radius: 0;
+    }
+
+    .input-number-group .input-number-decrement,
+    .input-number-group .input-number-increment {
+      display: inline-block;
+      width: 40px;
+      background: #e6e6e6;
+      color: #0a0a0a;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 2rem;
+      font-weight: 400;
+    }
+
+    .input-number-group .input-number-decrement {
+      margin-right: 0.3rem;
+    }
+
+    .input-number-group .input-number-increment {
+      margin-left: 0.3rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">carrito</a>
+  </nav>
+  <div class="container mt-7">
+    <div class="row">
+      <div class="col-md-9">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <td>id cliente</td>
+              <td>libro</td>
+              <td>cantida</td>
+              <td>precio unitario</td>
+              <td>total</td>
+              <td>opciones</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (data) { %>
+            <% for(var i = 0; i < data.length; i++) { %>
+            <tr>
+
+              <td><%= data[i].cliente %></td>
+              <td><%= data[i].libro %></td>
+
+              <td>
+                <form action="/cart/update/<%= data[i].libro %>/<%=i%>" method="POST" id="up_<%=i%>">
+                <div class="input-group input-number-group">
+                  <div class="input-group-button">
+                    <span onclick="restar(<%=i%>)" class="input-number-decrement">-</span>
+                  </div>
+                  <input class="input-number" type="number" id="contador_<%=i%>" name="contador_<%=i%>" value="<%= data[i].cantidad %>" min="0" max="1000">
+                  <div class="input-group-button">
+                    <span onclick="sumar(<%=i%>)" class="input-number-increment">+</span>
+                  </div>
+                </div>
+              </form>
+              </td>
+              <td><%= data[i].preUnit %></td>
+              <td><%= (data[i].preUnit)* (data[i].cantidad)%></td>
+              <td>
+                <a href="/cart/delete/<%= data[i].libro %>"><i class="icono far fa-trash-alt"></i></a>
+              </td>
+            </tr>
+            <% } %>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+  <script>
+   function sumar (n) {
+      var caja = document.getElementById("contador");
+
+      var val = parseInt(caja.value, 10);
+      caja.value=(val + 1);
+      document.getElementById("up_"+n).submit();
+    };
+
+    function restar (n) {
+      var caja = document.getElementById("contador");
+
+      var val = parseInt(caja.value, 10);
+      if(val<=1)
+      {
+        caja.value=1;
+      }
+      else
+      {
+        caja.value=(val - 1);
+      }
+      document.getElementById("up_"+n).submit();
+    };
+
+
+  </script>
+
+
+</body>
+
+</html>

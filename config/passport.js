@@ -106,7 +106,7 @@ module.exports = function(passport) {
             passReqToCallback: true // allows us to pass back the entire request to the callback
         },
         function(req, email, password, done) { // callback with email and password from our form
-
+          console.log("????",req.params.lib);
             connection.query("SELECT * FROM `cliente` WHERE `email` = '" + email + "'", function(err, rows) {
                 if (err)
                     return done(err);
@@ -119,7 +119,7 @@ module.exports = function(passport) {
                     return done(null, false, req.flash('loginMessage', 'Oops! Contraseña incorrecta.')); // create the loginMessage and save it to session as flashdata
 
                 // all is well, return successful user
-                return done(null, rows[0]);
+                return done(null, rows[0],req.flash('loginMessage',req.params.lib));
 
             });
 

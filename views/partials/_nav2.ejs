@@ -1,0 +1,37 @@
+
+<div class="nav">
+
+  <a href="/">
+    <div class="imagen"></div>
+  </a>
+
+  <form action="/resultados" method="POST">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+      <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+        <i class="material-icons">search</i>
+      </label>
+      <div class="mdl-textfield__expandable-holder">
+        <input class="mdl-textfield__input"  class="entrada" name="cosa" type="text" autocapitalize="off" spellcheck="false" autocorrect="off"" type="text" id="sample6">
+
+      </div>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label combo" style="margin-left: 10px">
+        <select class="mdl-textfield__input combo" id="filtro" name="filtro">
+          <option value="titulo">Título de Libro</option>
+          <option value="Autor">Autor</option>
+          <option value="Editorial">Editorial</option>
+        </select>
+        <label class="mdl-textfield__label " for="filtro" style="    font-size: 16px">Buscar por:</label>
+      </div>
+  </form>
+  <a <%= user %> href="/cart"><button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"><i
+        class="icono fas fa-cart-plus"></i>Carrito(<%= dato3 %>)</button> </a>
+  <span class="cliente" <%= user %>><%= dato1 %> <%= dato2 %></span>
+  <a <%= user %> href="/logout"><button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+      id="logout">Cerrar sesion</button></a>
+  <a <%= as %> href="/login"><button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+      id="login">Inciar sesión</button></a>
+  <a <%= as %> href="/registro"><button href="/registro"
+      class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="registro">Registrarse</button></a>
+
+</div>

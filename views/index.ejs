@@ -114,17 +114,7 @@
 </head>
 
 <body>
-  <div class="nav">
-
-      <a <%= user %> href="/cart" ><button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"><i class="icono fas fa-cart-plus"></i>Carrito(<%= dato3 %>)</button> </a>
-      <span class="cliente" <%= user %>  ><%= dato1 %> <%= dato2 %></span>
-      <a <%= user %> href="/logout"><button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="logout">Cerrar sesion</button></a>
-      <a <%= as %> href="/login"><button  class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="login">Inciar sesión</button></a>
-      <a <%= as %> href="/registro"><button href="/registro" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="registro">Registrarse</button></a>
-
-
-
-  </div>
+    <% include partials/_nav %>
   <div class="contenido">
     <div class="cont">
       <div class="imagen">
